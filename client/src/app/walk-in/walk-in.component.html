@@ -1,0 +1,99 @@
+<br>
+<div class="container">
+   <app-breadcrumb></app-breadcrumb>
+   <div class="row">
+       <div class="col-md-3">
+            <mat-card class="walkin-card">
+                <div class="calendar-wrapper">
+                    <mat-calendar (selectedChange)="dateChange($event)">
+                    </mat-calendar>
+                </div>
+            </mat-card>
+       </div>
+       <div class="col-md-9">
+            <mat-card class="walkin-card">
+                <mat-card-content>
+                    <div class="header">
+                        <div class="container-fluid">
+                            <!-- Set1 -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span class="pull-left">
+                                        <b>Morning</b>
+                                        <br>
+                                        <span class="text-muted">
+                                            9:00 AM to 12:00 PM
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="col-md-6">
+                                    <div style="text-align: right;">
+                                        <button mat-button (click)="openDialog()">    
+                                            <mat-icon>add</mat-icon>
+                                            Add Slots
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row pt-1">
+                                <ng-template ngFor let-mrgslot [ngForOf]="dataSource">
+                                    <div *ngIf="mrgslot.fromTime<'12:00' && mrgslot.bookedDet.length === 0 " class="col-md-2 pt-3">
+                                        <button mat-stroked-button class="slots-btn">
+                                            <span class="text-muted"> {{mrgslot.fromTime  | time24to12Transform }} </span>
+                                        </button>
+                                    </div>
+                                    <div *ngIf="mrgslot.fromTime<'12:00' && mrgslot.bookedDet.length > 0 " class="col-md-2 pt-3">
+                                        <button mat-stroked-button class="slots-btn-fill">
+                                            <span> {{mrgslot.fromTime  | time24to12Transform }} </span>
+                                        </button>
+                                    </div>
+                                </ng-template>
+                            </div>
+                            <!-- / Set1 -->
+
+                            <div class="row pt-3 py-3">
+                                <div class="container">
+                                    <mat-divider></mat-divider>
+                                </div>
+                            </div>
+                            <!-- Set2 -->
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <span class="pull-left">
+                                        <b>Evening</b>
+                                        <br>
+                                        <span class="text-muted">
+                                            5:00 PM to 09:00 PM
+                                        </span>
+                                    </span>
+                                </div>
+                                <div class="col-md-6">
+                                    <div style="text-align: right;">
+                                        <button mat-button (click)="openEveningDialog()">    
+                                            <mat-icon>add</mat-icon>
+                                            Add Slots
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row pt-1">
+                                <ng-template ngFor let-mrgslot [ngForOf]="dataSource">
+                                    <div class="col-md-2 pt-3" *ngIf="mrgslot.fromTime>='17:00'">
+                                    <button mat-stroked-button class="slots-btn">
+                                        <span class="text-muted"> {{mrgslot.fromTime | time24to12Transform}} </span>
+                                    </button>
+                                    </div>
+                                </ng-template>
+                            </div>
+                            <!-- Set2 -->
+                        </div>
+                    </div>
+                    
+                </mat-card-content>
+            </mat-card>
+       </div>
+   </div>
+
+</div>

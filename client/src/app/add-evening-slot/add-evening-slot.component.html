@@ -1,0 +1,34 @@
+<link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css">
+      <form  [formGroup]="addTimeSlot">
+         Add Evening Slot  
+         <div class="row">
+            <div class="col-md-12">
+               <mat-form-field appearance="fill">
+                  <mat-label>Date</mat-label>
+                  <input matInput [matDatepicker]="picker1"  [min]="minDate" class="datePick" formControlName="slotDate" required>
+                  <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                  <mat-datepicker #picker1></mat-datepicker>
+               </mat-form-field>
+            </div>
+            
+         </div>
+         <div class="row">
+            <div class="col-xs-12 col-md-6 col-md-6 form-group time-range-example">
+               <mat-form-field appearance="fill">
+                  <mat-label>From</mat-label>
+                  <input matInput placeholder="Select time" [ngxTimepicker]="range1" formControlName="fromTime" [format]="24" min="17:00" max="20:30" (focusin)="futureTime($event)" readonly>
+                  <ngx-material-timepicker #range1 class="cdk-overlay-container"></ngx-material-timepicker>
+               </mat-form-field>
+            </div>
+            <div class="col-xs-12 col-md-6 col-md-6 form-group">
+               <mat-form-field appearance="fill">
+                  <mat-label>To</mat-label>
+                  <input type="text" matInput  placeholder="To time"  value="{{maxTime}}" disabled>
+                  <input matInput type="text" formControlName="toTime" placeholder="To time" [(ngModel)]="maxTime" hidden>
+               </mat-form-field>
+            </div>
+         </div>
+         <button mat-raised-button type="submit" color="primary" class="Update-btn" (click)="onAddSlot()" [disabled]="!addTimeSlot.valid">Save</button>
+         <button mat-raised-button type="button" class="Discard-btn" (click)="closeDialog()">Cancel</button>
+      </form>
+   

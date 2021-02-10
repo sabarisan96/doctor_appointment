@@ -1,0 +1,72 @@
+
+  <br>
+  
+<div class="container">
+
+      <app-breadcrumb></app-breadcrumb>
+    <mat-tab-group mat-align-tabs="start">
+        <mat-tab> 
+            <ng-template mat-tab-label> 
+                25
+                <br>
+                Queue
+            </ng-template>
+            <div class="mat-container">
+                    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+                   
+                    <!-- patient Column -->
+                    <ng-container matColumnDef="patient">
+                    <th mat-header-cell *matHeaderCellDef> Patient </th>
+                    <td mat-cell *matCellDef="let element"> <img src="" alt="" class="profile-pic"> </td>
+                    </ng-container>
+                
+                    <!-- contact Column -->
+                    <ng-container matColumnDef="contact">
+                    <th mat-header-cell *matHeaderCellDef> Contact </th>
+                    <td mat-cell *matCellDef="let element"> {{element.contact}} </td>
+                    </ng-container>
+                
+                    <!-- appointment Column -->
+                    <ng-container matColumnDef="appointment">
+                    <th mat-header-cell *matHeaderCellDef> Appointment </th>
+                    <td mat-cell *matCellDef="let element"> {{element.appointment | date:'h:mm a' }} </td>
+                    </ng-container>
+                
+                    <!-- waited Column -->
+                    <ng-container matColumnDef="waited">
+                    <th mat-header-cell *matHeaderCellDef> Waited </th>
+                    <td mat-cell *matCellDef="let element"> {{element.waited}} </td>
+                    </ng-container>
+                
+                    <!-- <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr> -->
+                </table>
+            </div>
+        </mat-tab>
+      
+        <mat-tab> 
+            <ng-template mat-tab-label>
+                0
+                <br>
+                Earlier
+            </ng-template>
+        </mat-tab>
+      
+        <mat-tab>
+            <ng-template mat-tab-label>
+                0
+                <br>
+                Wait List
+            </ng-template>
+        </mat-tab>
+
+        <mat-tab>
+            <ng-template mat-tab-label>
+                0
+                <br>
+                No Show
+            </ng-template>
+        </mat-tab>
+      </mat-tab-group>
+       
+</div>

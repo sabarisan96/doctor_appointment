@@ -1,0 +1,92 @@
+
+html, body {
+    height: 100%;
+    background-color: rgb(233, 225, 225) !important;
+    // position:fixed;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.mat-tab-label:first-child{
+margin-left: 0px;
+}
+/* Styles for tab labels */
+.mat-tab-label {
+    margin-left: 5px;
+    min-height: 60px;
+    min-width: 150px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    background-color: blue;
+    color: #fff !important;
+    text-align: left !important;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-weight: 700;
+    opacity: 0;
+    justify-content: left !important;
+    align-items: left !important;
+}
+
+/* Styles for the active tab label */
+.mat-tab-label.mat-tab-label-active {
+
+    min-width: 150px !important;
+    padding: 5px;
+    background-color: white !important;
+    color:blue !important;
+    font-weight: 700;
+    border:1px solid lightgray;
+    border-bottom: 1px solid blue !important;
+}
+
+
+/* Styles for the ink bar */
+.mat-ink-bar {
+    background-color: green;
+}
+
+.mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
+    background-color: #5023F9;
+}
+
+.mat-tab-content{
+    padding: 100px;
+}
+
+.mat-container{
+    margin: 10px;
+}
+
+.mat-tab-body{
+    background-color: #fff;
+    padding: 15px;
+    min-height: 550px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 1px 1px 5px 1px rgb(224, 229, 243);
+}
+
+
+.mat-table{
+    width: 100%;
+}
+
+
+.profile-pic{
+    width:80px;
+    height: 80px;
+    padding: 20px;
+    border-radius: 100%;
+}
+
+.timepicker-overlay {
+    z-index: 10000000 !important;
+}
+
+.timepicker-backdrop-overlay {
+    z-index: 10000000 !important;
+}
